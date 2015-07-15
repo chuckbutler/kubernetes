@@ -20,6 +20,7 @@ certainly want the docs that go with that version.</h1>
 <!-- END STRIP_FOR_RELEASE -->
 
 <!-- END MUNGE: UNVERSIONED_WARNING -->
+
 If you are not sure what OSes and infrastructure is supported, the table below lists all the combinations which have
 been tested recently.
 
@@ -49,9 +50,10 @@ Bare-metal (Offline) | CoreOS       | CoreOS | flannel     | [docs](coreos/bare_
 CloudStack           | Ansible      | CoreOS | flannel     | [docs](cloudstack.md)                        |             | Community (@runseb)          | Uses K8s version 0.9.1
 Vmware               |              | Debian | OVS         | [docs](vsphere.md)                           |             | Community (@pietern)         | Uses K8s version 0.9.1
 Bare-metal           | custom       | CentOS | _none_      | [docs](centos/centos_manual_config.md)       |             | Community(@coolsvap)         | Uses K8s v0.9.1
-AWS                  | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | [Community](https://github.com/whitmo/bundle-kubernetes) ( [@whit](https://github.com/whitmo), [@matt](https://github.com/mbruzek), [@chuck](https://github.com/chuckbutler) ) | [Tested](http://reports.vapour.ws/charm-tests-by-charm/kubernetes) K8s v0.8.1
-OpenStack/HPCloud    | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | [Community](https://github.com/whitmo/bundle-kubernetes) ( [@whit](https://github.com/whitmo), [@matt](https://github.com/mbruzek), [@chuck](https://github.com/chuckbutler) ) | [Tested](http://reports.vapour.ws/charm-tests-by-charm/kubernetes) K8s v0.8.1
-Joyent               | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | [Community](https://github.com/whitmo/bundle-kubernetes) ( [@whit](https://github.com/whitmo), [@matt](https://github.com/mbruzek), [@chuck](https://github.com/chuckbutler) ) | [Tested](http://reports.vapour.ws/charm-tests-by-charm/kubernetes) K8s v0.8.1
+AWS                  | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | Community ([@whitmo](https://github.com/whitmo), [@mbruzek](https://github.com/mbruzek), [@chuckbutler](https://github.com/chuckbutler)) | Tested with head 07/15/2015
+GCE                  | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | Community ([@whitmo](https://github.com/whitmo), [@mbruzek](https://github.com/mbruzek), [@chuckbutler](https://github.com/chuckbutler)) | Tested with head 07/15/2015
+OpenStack/HPCloud    | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | Community ([@whitmo](https://github.com/whitmo), [@mbruzek](https://github.com/mbruzek), [@chuckbutler](https://github.com/chuckbutler)) | [Tested](http://reports.vapour.ws/charm-tests-by-charm/kubernetes) K8s v0.8.1
+Joyent               | Juju         | Ubuntu | flannel     | [docs](juju.md)                              |             | Community ([@whitmo](https://github.com/whitmo), [@mbruzek](https://github.com/mbruzek), [@chuckbutler](https://github.com/chuckbutler)) | [Tested](http://reports.vapour.ws/charm-tests-by-charm/kubernetes) K8s v0.8.1
 AWS                  | Saltstack    | Ubuntu | OVS         | [docs](aws.md)                               |             | Community (@justinsb)        | Uses K8s version 0.5.0
 Vmware               | CoreOS       | CoreOS | flannel     | [docs](coreos.md)                            |             | Community (@kelseyhightower) | Uses K8s version 0.15.0
 Azure                | Saltstack    | Ubuntu | OpenVPN     | [docs](azure.md)                             |             | Community                    |
@@ -73,7 +75,7 @@ Definition of columns:
   - **Networking** is what implements the [networking model](../../docs/admin/networking.md).  Those with networking type
     _none_ may not support more than one node, or may support multiple VM nodes only in the same physical node.
   - **Conformance** indicates whether a cluster created with this configuration has passed the project's conformance
-    tests for supporting the API and base features of Kubernetes v1.0.0. 
+    tests for supporting the API and base features of Kubernetes v1.0.0.
   - Support Levels
     - **Project**:  Kubernetes Committers regularly use this configuration, so it usually works with the latest release
       of Kubernetes.
