@@ -23,8 +23,8 @@ The kubernetes charms require a relation to a distributed key value store
 objects.
 
 ```
-juju deploy trusty/etcd
-juju deploy local:trusty/kubernetes
+juju deploy etcd
+juju deploy kubernetes
 juju add-relation kubernetes etcd
 ```
 
@@ -40,6 +40,8 @@ of the [kubernetes github project](https://github.com/kubernetes/kubernetes).
 Changing the version causes the all the Kubernetes containers to be restarted.
 
 **cidr**: Set the IP range for the Kubernetes cluster. eg: 10.1.0.0/16
+
+**dns_domain**: Set the DNS domain for the Kubernetes cluster.
 
 # Storage
 The kubernetes charm is built to handle multiple storage devices if the cloud
@@ -72,6 +74,22 @@ change the `mount-point` value in layer.yaml before the charms is deployed.
 To avoid data loss you must attach the storage before making the connection to
 the etcd cluster.
 
+## Operational Actions
+
+**Microbot** - Deploys mini containers that serve up static webpages and
+identify the container ID that's serving the request. Useful to deploy a
+phaux workload for visualizations quickly, or to test reverse proxy that
+does not depend on session affinity.
+
+**Pause** - Cordon the unit by marking it as unscheduleable. It also drains
+the workloads from the unit, making it feesible to perform maintenance tasks
+without disrupting end user experience.
+
+**Resume** - UnCordon the unit. No workload balancing is done at this time,
+the kubernetes scheduler will being filling the unit back up with workloads
+depending on unit-pressure, which is based on resource allocation/uitilization.
+
+
 ## State Events
 While this charm is meant to be a top layer, it can be used to build other
 solutions.  This charm sets or removes states from the reactive framework that
@@ -90,7 +108,7 @@ application along with the configuration needed to contact the cluster
 securely. You will need to download the `/home/ubuntu/kubectl_package.tar.gz`
 from the kubernetes leader unit to your machine so you can control the cluster.
 
-**skydns.available** - Indicates when the Domain Name System (DNS) for the
+**kubedns.available** - Indicates when the Domain Name System (DNS) for the
 cluster is operational.
 
 
